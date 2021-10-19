@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "declaration": false,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "allowUnreachableCode": false,
+    "noImplicitReturns": true,
+    "outDir": "lib/",
+    "baseUrl": "src/"
+  },
+  "include": ["src/**/*", "typings/index.d.ts"],
+  "compileOnSave": false
+}
