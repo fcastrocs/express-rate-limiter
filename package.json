@@ -1,0 +1,29 @@
+{
+  "name": "@machiavelli/express-api-limiter",
+  "version": "1.0.0",
+  "description": "one request at a time per userId",
+  "main": "lib/index.js",
+  "types": "typings/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fcastrocs/express-api-limiter.git"
+  },
+  "keywords": [
+    "express",
+    "rate limiter",
+    "request limiter",
+    "api limiter"
+  ],
+  "author": "Francisco Castro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fcastrocs/express-api-limiter/issues"
+  },
+  "homepage": "https://github.com/fcastrocs/express-api-limiter#readme",
+  "devDependencies": {
+    "typescript": "^4.4.4"
+  }
+}
