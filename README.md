@@ -1,7 +1,7 @@
 # express-rate-limiter
 
-`express-rate-limit` is a simple, but effective express.js rate limiter by `userid` and `route path`. It allows one request at a time. <br />
-While, this is an opionated module, it can be extended and modified to your needs.<br />
+`express-rate-limit` is a simple, but effective express.js rate limiter by `userid` and `route path` as a compound unique key. It allows one request at a time. <br />
+While this is an opionated module, it can be extended and modified to your needs.<br />
 
 It takes the `userid` from `req.session.userId` and the path from `req.path`<br />
 `MongoDB` is used for the store.
