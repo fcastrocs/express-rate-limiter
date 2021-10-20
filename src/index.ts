@@ -22,7 +22,7 @@ export default function requestLimiter(options: Options): (req: Req, res: Res, n
 
     await collection.insertOne({ ...query, createdAt: new Date() });
 
-    req.on("end", () => {
+    res.on("finish", () => {
       collection.deleteOne(query);
     });
 
