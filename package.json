@@ -1,6 +1,6 @@
 {
   "name": "@machiavelli/express-rate-limiter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "one request at a time per userId",
   "main": "lib/index.js",
   "types": "typings/index.d.ts",
