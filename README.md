@@ -20,7 +20,7 @@ app.use(rateLimiter({options}));
 ### options
 ```js
 {
-  client: MongoClient;
-  excludePaths: string[];
-  expireAfterSeconds: number; // limiter will be removed after this many seconds.
+  client: MongoClient;        // MongoDb client
+  excludePaths: string[];     // route paths to exclude
+  expireAfterSeconds: number; // limiter will be removed after this many seconds if still exits in the store.
 }
