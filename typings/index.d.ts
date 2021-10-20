@@ -1,11 +1,7 @@
 import { MongoClient } from "mongodb";
-import { NextFunction as Next, Request, Response as Res } from "express";
+import { NextFunction as Next, Request as Req, Response as Res } from "express";
 
-interface ExtendedReq extends Request {
-  session: { userId: string };
-}
-
-export default function requestLimiter(options: Options): (req: ExtendedReq, res: Res, next: Next) => Promise<void>;
+export default function requestLimiter(options: Options): (req: Req, res: Res, next: Next) => Promise<void>;
 
 export interface Options {
   client: MongoClient;
