@@ -1,12 +1,12 @@
-import { NextFunction as Next, Request as Req, Response as Res } from "express";
-import { Options } from "../typings";
+import { NextFunction as Next, Response as Res } from "express";
+import { Options, ExtendedReq } from "../typings";
 
-export default function requestLimiter(options: Options): (req: Req, res: Res, next: Next) => Promise<void> {
+export default function requestLimiter(options: Options): (req: ExtendedReq, res: Res, next: Next) => Promise<void> {
   const collection = options.client.db().collection("rate-limiter");
   collection.createIndex({ userId: 1, path: 1, steamUsername: 1 }, { unique: true });
   collection.createIndex({ createdAt: 1 }, { expireAfterSeconds: options.expireAfterSeconds });
 
-  return async function (req: Req, res: Res, next: Next) {
+  return async function (req: ExtendedReq, res: Res, next: Next) {
     if (options.excludePaths.includes(req.path)) {
       next();
       return;
