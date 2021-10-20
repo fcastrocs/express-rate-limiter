@@ -13,16 +13,17 @@ export default function requestLimiter(options: Options): (req: Req, res: Res, n
     }
 
     const userId = (req as any).session.userId;
+    const query = { userId, path: req.path, steamUsername: req.body.username };
 
-    if (await collection.findOne({ userId, path: req.path })) {
+    if (await collection.findOne(query)) {
       res.status(403).send("You have an ongoing request for this resource.");
       return;
     }
 
-    await collection.insertOne({ userId, path: req.path, createdAt: new Date() });
+    await collection.insertOne({ ...query, createdAt: new Date() });
 
     req.on("end", () => {
-      collection.deleteOne({ userId, path: req.path });
+      collection.deleteOne(query);
     });
 
     next();
