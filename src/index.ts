@@ -1,5 +1,5 @@
 import { NextFunction as Next, Response as Res, Request as Req } from "express";
-import { Options } from "../typings";
+import { Options } from "../@types";
 
 export default function requestLimiter(options: Options): (req: Req, res: Res, next: Next) => Promise<void> {
   const collection = options.client.db().collection("rate-limiter");
