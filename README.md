@@ -1,15 +1,8 @@
 # express-rate-limiter
 
-`express-rate-limit` is a simple, but effective express.js rate limiter by `userid` and `route path` as a compound unique key. It allows one request at a time. <br />
-While this is an opionated module, it can be extended and modified to your needs.<br />
-
-It takes the `userid` from `req.session.userId` and the path from `req.path`<br />
+`express-rate-limit` is a simple, but effective express.js rate limiter by `req.session.userId` and `req.path` as a compound unique key. optionally another field from req.body can be added to the compound key through `options.customField`
+Allows one request at a time.
 `MongoDB` is used for the store.
-
-## Installation
-```shell
-npm install @machiavelli/express-rate-limiter
-```
 
 ## Usage
 ```js
@@ -21,6 +14,8 @@ app.use(rateLimiter({options}));
 ```js
 {
   client: MongoClient;        // MongoDb client
-  excludePaths: string[];     // route paths to exclude
-  expireAfterSeconds: number; // limiter will be removed after this many seconds if still exits in the store.
+  collectionName: string;     // collection for store
+  customField?: { name: string; reqBodyProp: string }; // custom field to be added to compound key
+  excludePaths: string[];     // route paths to exclude from rate limit
+  expireAfterSeconds: number; // after how many seconds rate limit expires
 }
